@@ -1,0 +1,14 @@
+C:\Users\Admin\Documents\Mechatronik_Master\Embedded Systems\CroUI\CroUI\bin\Debug\CroUI.exe.config
+C:\Users\Admin\Documents\Mechatronik_Master\Embedded Systems\CroUI\CroUI\bin\Debug\CroUI.exe
+C:\Users\Admin\Documents\Mechatronik_Master\Embedded Systems\CroUI\CroUI\bin\Debug\CroUI.pdb
+C:\Users\Admin\Documents\Mechatronik_Master\Embedded Systems\CroUI\CroUI\obj\Debug\CroUI.csprojAssemblyReference.cache
+C:\Users\Admin\Documents\Mechatronik_Master\Embedded Systems\CroUI\CroUI\obj\Debug\MainWindow.g.cs
+C:\Users\Admin\Documents\Mechatronik_Master\Embedded Systems\CroUI\CroUI\obj\Debug\App.g.cs
+C:\Users\Admin\Documents\Mechatronik_Master\Embedded Systems\CroUI\CroUI\obj\Debug\CroUI_MarkupCompile.cache
+C:\Users\Admin\Documents\Mechatronik_Master\Embedded Systems\CroUI\CroUI\obj\Debug\CroUI_MarkupCompile.lref
+C:\Users\Admin\Documents\Mechatronik_Master\Embedded Systems\CroUI\CroUI\obj\Debug\MainWindow.baml
+C:\Users\Admin\Documents\Mechatronik_Master\Embedded Systems\CroUI\CroUI\obj\Debug\CroUI.g.resources
+C:\Users\Admin\Documents\Mechatronik_Master\Embedded Systems\CroUI\CroUI\obj\Debug\CroUI.Properties.Resources.resources
+C:\Users\Admin\Documents\Mechatronik_Master\Embedded Systems\CroUI\CroUI\obj\Debug\CroUI.csproj.GenerateResource.cache
+C:\Users\Admin\Documents\Mechatronik_Master\Embedded Systems\CroUI\CroUI\obj\Debug\CroUI.exe
+C:\Users\Admin\Documents\Mechatronik_Master\Embedded Systems\CroUI\CroUI\obj\Debug\CroUI.pdb

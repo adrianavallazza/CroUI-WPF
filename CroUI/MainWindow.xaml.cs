@@ -24,5 +24,50 @@ namespace CroUI
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonRectangle_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonCircle_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonTriangle_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonStar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonLed_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonMusic_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonConnect_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
