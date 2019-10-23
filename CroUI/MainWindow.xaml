@@ -3,9 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
         xmlns:local="clr-namespace:CroUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="900" MinHeight="600" MinWidth="900" WindowStartupLocation="CenterScreen">
+        Title="CroUI ( Adriana Vallazza und Aziz Sayfutdinov )" Height="600" Width="900" MinHeight="600" MinWidth="900" WindowStartupLocation="CenterScreen"
+        PreviewKeyDown="Window_PreviewKeyDown" PreviewKeyUp="Window_PreviewKeyUp">
     <Grid Name="gridMainWindow">
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
@@ -39,7 +41,7 @@
             </Button>
         </Grid>
 
-        <GroupBox Grid.Row="2" Header="Control" HorizontalAlignment="Stretch"  Margin="10" VerticalAlignment="Stretch" >
+        <GroupBox Grid.Row="2" Header="Control" HorizontalAlignment="Stretch"  Margin="10" VerticalAlignment="Stretch">
             <!--Control Elements-->
             <Grid Name="gridControl" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <Grid.RowDefinitions>
@@ -92,16 +94,20 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20 10 20 0" Cursor="Hand">
+                    <Button Name="buttonArrowUp" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20 10 20 0" Cursor="Hand" 
+                            PreviewMouseDown="buttonArrowUp_PreviewMouseDown" PreviewMouseUp="buttonArrow_PreviewMouseUp">
                         <Image Source="Resources/img/arrow/arrow-up.png" Height="Auto" Width="Auto"/>
                     </Button>
-                    <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="45 5 0 5" Cursor="Hand">
+                    <Button Name="buttonArrowLeft" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="45 5 0 5" Cursor="Hand"
+                            PreviewMouseDown="buttonArrowLeft_PreviewMouseDown" PreviewMouseUp="buttonArrow_PreviewMouseUp">
                         <Image Source="Resources/img/arrow/arrow-left.png" Height="Auto" Width="Auto"/>
                     </Button>
-                    <Button Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0 5 45 5" Cursor="Hand">
+                    <Button Name="buttonArrowRight" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0 5 45 5" Cursor="Hand"
+                            PreviewMouseDown="buttonArrowRight_PreviewMouseDown" PreviewMouseUp="buttonArrow_PreviewMouseUp">
                         <Image Source="Resources/img/arrow/arrow-right.png" Height="Auto" Width="Auto"/>
                     </Button>
-                    <Button Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20 0 20 10" Cursor="Hand">
+                    <Button Name="buttonArrowDown" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20 0 20 10" Cursor="Hand"
+                            PreviewMouseDown="buttonArrowDown_PreviewMouseDown" PreviewMouseUp="buttonArrow_PreviewMouseUp">
                         <Image Source="Resources/img/arrow/arrow-down.png" Height="Auto" Width="Auto"/>
                     </Button>
                 </Grid>
@@ -111,15 +117,18 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="8*"/>
                         <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="Speed: " HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <Label Content="0%" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <Slider Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Cursor="Hand"/>
-                    <Label Content="100%" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <Label Content="Speed: " Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label Content="0%" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Slider Name="sliderSpeed" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Cursor="Hand" ValueChanged="sliderSpeed_ValueChanged" 
+                            TickPlacement="TopLeft" Maximum="100" TickFrequency="10" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0"/>
+                    <Label Content="100%" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 </Grid>
                 <!--Effect Buttons-->
                 <Grid Name="gridEffectButtons" HorizontalAlignment="Stretch" Grid.Row="5" VerticalAlignment="Stretch">
@@ -140,9 +149,25 @@
                 </Grid>
             </Grid>
         </GroupBox>
-        <GridSplitter Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Stretch" Width="2"/>
+        <!--<GridSplitter Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Stretch" Width="2"/>-->
         <GroupBox Grid.Column="1" Header="Visualisation" HorizontalAlignment="Stretch" Margin="10" Grid.Row="2" VerticalAlignment="Stretch">
+            <Grid Name="gridVisual">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
 
+                </Grid.ColumnDefinitions>
+                <ed:Arc StartAngle="-120" EndAngle="120" Stretch="None" 
+                    Height="300" Width="300" StrokeThickness="20"      
+                    StrokeDashArray=".25" Stroke="#FF484D5F"/>
+                <ed:Arc StartAngle="-120" EndAngle="-35" Stretch="None" 
+                    Height="300" Width="300" StrokeThickness="20"
+                    StrokeDashArray=".25" Stroke="CornflowerBlue"/>
+            </Grid>
         </GroupBox>
         <Image HorizontalAlignment="Left" Height="100" Margin="-41,169,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100"/>
     </Grid>
@@ -191,7 +216,7 @@
                               <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                                 <GradientStop Color="AliceBlue" Offset="0.0" />
                                 <GradientStop Color="CornflowerBlue" Offset="0.5" />
-                                <GradientStop Color="Blue" Offset="1" />
+                                <GradientStop Color="RoyalBlue" Offset="1" />
                               </LinearGradientBrush>
                             </Setter.Value>
                           </Setter>
