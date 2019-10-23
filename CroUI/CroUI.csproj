@@ -94,5 +94,22 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\effects\led.png" />
+    <Resource Include="Resources\img\arrow\arrow-right.png" />
+    <Resource Include="Resources\img\effects\musical-note.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\arrow\arrow-down.png" />
+    <Resource Include="Resources\img\arrow\arrow-up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\shapes\circle.png" />
+    <Resource Include="Resources\img\arrow\arrow-left.png" />
+    <Resource Include="Resources\img\shapes\line.png" />
+    <Resource Include="Resources\img\shapes\rectangle.png" />
+    <Resource Include="Resources\img\shapes\star.png" />
+    <Resource Include="Resources\img\shapes\triangle.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,8 +5,203 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CroUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="600" Width="900" MinHeight="600" MinWidth="900" WindowStartupLocation="CenterScreen">
+    <Grid Name="gridMainWindow">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Stretch" FontSize="35" FontWeight="Bold" >
+            CroUI
+        </Label>
+        <!--Socket and Connect-->
+        <Grid Name="gridSocket" Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="160"/>
+                <ColumnDefinition Width="80"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="RaspPi IP-Address:" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <TextBox Grid.Column="2" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="30">
+                192.168.1.2
+            </TextBox>
+            <Button Name="buttonConnect" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Width="70" Click="buttonConnect_Click" Cursor="Hand">
+                Connect
+            </Button>
+        </Grid>
+
+        <GroupBox Grid.Row="2" Header="Control" HorizontalAlignment="Stretch"  Margin="10" VerticalAlignment="Stretch" >
+            <!--Control Elements-->
+            <Grid Name="gridControl" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!--Status Display-->
+                <TextBox Name="textBoxStatus" HorizontalAlignment="Stretch" Margin="5 10 5 20" TextWrapping="Wrap" Text="Status" 
+                         VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"/>
+                <!--Shape Buttons-->
+                <Grid Name="gridShapeButtons" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="buttonRectangle" HorizontalAlignment="Stretch" Margin="10 10 10 15" VerticalAlignment="Stretch" Click="buttonRectangle_Click" Cursor="Hand">
+                        <Image Source="Resources/img/shapes/rectangle.png" Height="Auto" Width="Auto"/>
+                    </Button>
+                    <Button Name="buttonCircle" Grid.Column="1" HorizontalAlignment="Stretch"  Margin="10 10 10 15" VerticalAlignment="Stretch" Click="buttonCircle_Click" Cursor="Hand">
+                        <Image Source="Resources/img/shapes/circle.png" Height="Auto" Width="Auto"/>
+                    </Button>
+                    <Button Name="buttonTriangle" Grid.Column="2" HorizontalAlignment="Stretch"  Margin="10 10 10 15" VerticalAlignment="Stretch" Click="buttonTriangle_Click" Cursor="Hand">
+                        <Image Source="Resources/img/shapes/triangle.png" Height="Auto" Width="Auto"/>
+                    </Button>
+                    <Button Name="buttonStar" Grid.Column="3" HorizontalAlignment="Stretch"  Margin="10 10 10 15" VerticalAlignment="Stretch" Click="buttonStar_Click" Cursor="Hand">
+                        <Image Source="Resources/img/shapes/star.png" Height="Auto" Width="Auto"/>
+                    </Button>
+                </Grid>
+                <!--Arrow Buttons-->
+                <Grid Name="gridArrowButtons" Grid.RowSpan="2" HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Stretch">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20 10 20 0" Cursor="Hand">
+                        <Image Source="Resources/img/arrow/arrow-up.png" Height="Auto" Width="Auto"/>
+                    </Button>
+                    <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="45 5 0 5" Cursor="Hand">
+                        <Image Source="Resources/img/arrow/arrow-left.png" Height="Auto" Width="Auto"/>
+                    </Button>
+                    <Button Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0 5 45 5" Cursor="Hand">
+                        <Image Source="Resources/img/arrow/arrow-right.png" Height="Auto" Width="Auto"/>
+                    </Button>
+                    <Button Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20 0 20 10" Cursor="Hand">
+                        <Image Source="Resources/img/arrow/arrow-down.png" Height="Auto" Width="Auto"/>
+                    </Button>
+                </Grid>
+                <!--Speed Slider-->
+                <Grid Name="gridSpeed" HorizontalAlignment="Stretch" Grid.Row="4" VerticalAlignment="Stretch">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="8*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Speed: " HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label Content="0%" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Slider Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Cursor="Hand"/>
+                    <Label Content="100%" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                </Grid>
+                <!--Effect Buttons-->
+                <Grid Name="gridEffectButtons" HorizontalAlignment="Stretch" Grid.Row="5" VerticalAlignment="Stretch">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="buttonLed" HorizontalAlignment="Stretch" Margin="5 10 5 10" VerticalAlignment="Stretch" Click="buttonLed_Click" Cursor="Hand">
+                        <Image Source="Resources/img/effects/led.png" Height="Auto" Width="Auto"/>
+                    </Button>
+                    <Button Name="buttonMusic" Grid.Column="2" HorizontalAlignment="Stretch" Margin="5 10" VerticalAlignment="Stretch" Click="buttonMusic_Click" Cursor="Hand">
+                        <Image Source="Resources/img/effects/musical-note.png" Height="Auto" Width="Auto"/>
+                    </Button>
+                </Grid>
+            </Grid>
+        </GroupBox>
+        <GridSplitter Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Stretch" Width="2"/>
+        <GroupBox Grid.Column="1" Header="Visualisation" HorizontalAlignment="Stretch" Margin="10" Grid.Row="2" VerticalAlignment="Stretch">
+
+        </GroupBox>
+        <Image HorizontalAlignment="Left" Height="100" Margin="-41,169,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100"/>
     </Grid>
+    <Window.Resources>
+        <ResourceDictionary>
+            <!--Normal Button Style-->
+            <Style TargetType="{x:Type Button}">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                            <GradientStop Color="WhiteSmoke" Offset="0.0" />
+                            <GradientStop Color="LightGray" Offset="0.25" />
+                            <GradientStop Color="DimGray" Offset="1" />
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Foreground" Value="Black" />
+                <!--Template for action triggered Button Styles-->
+                <Setter Property="Template">
+                  <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                      <Border CornerRadius="4" Background="{TemplateBinding Background}">
+                        <Grid>
+                          <!--<Border Background="{StaticResource ButtonBackground}" VerticalAlignment="Stretch" CornerRadius="2" HorizontalAlignment="Stretch"/>-->
+                          <!--<Border x:Name="BorderPressed"  Opacity="0" Background="Blue" VerticalAlignment="Stretch" CornerRadius="2" HorizontalAlignment="Stretch"/>-->
+                          <Path x:Name="PathIcon" Width="Auto" Height="Auto" HorizontalAlignment="Center"/>
+                          <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
+                        </Grid>
+                      </Border>
+                      <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                          <Setter Property="Background">
+                            <Setter.Value>
+                              <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Color="WhiteSmoke" Offset="0.0" />
+                                <GradientStop Color="LightGray" Offset="0.5" />
+                                <GradientStop Color="Silver" Offset="1" />
+                              </LinearGradientBrush>
+                            </Setter.Value>
+                          </Setter>
+                          <Setter Property="Foreground" Value="Navy" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                          <Setter Property="Background">
+                            <Setter.Value>
+                              <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Color="AliceBlue" Offset="0.0" />
+                                <GradientStop Color="CornflowerBlue" Offset="0.5" />
+                                <GradientStop Color="Blue" Offset="1" />
+                              </LinearGradientBrush>
+                            </Setter.Value>
+                          </Setter>
+                          <Setter Property="Foreground" Value="White" />
+                        </Trigger>
+                      </ControlTemplate.Triggers>
+                  </ControlTemplate>
+              </Setter.Value>
+            </Setter>
+          </Style>
+        </ResourceDictionary>
+    </Window.Resources>
 </Window>
