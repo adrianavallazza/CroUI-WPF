@@ -186,6 +186,8 @@ namespace CroUI
         {
             // Determine if a button is currently pressed - if yes which one?
             // Adjust the speed of the movement
+            arcSpeed.EndAngle = sliderSpeed.Value - 120;
+            textSpeed.Text = ((int)sliderSpeed.Value).ToString();
         }
 
         private void setBtnPressedDesign(Button btn)
