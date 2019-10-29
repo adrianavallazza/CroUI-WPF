@@ -12,3 +12,5 @@ C:\Users\Admin\Documents\Mechatronik_Master\Embedded Systems\CroUI\CroUI\obj\Deb
 C:\Users\Admin\Documents\Mechatronik_Master\Embedded Systems\CroUI\CroUI\obj\Debug\CroUI.csproj.GenerateResource.cache
 C:\Users\Admin\Documents\Mechatronik_Master\Embedded Systems\CroUI\CroUI\obj\Debug\CroUI.exe
 C:\Users\Admin\Documents\Mechatronik_Master\Embedded Systems\CroUI\CroUI\obj\Debug\CroUI.pdb
+C:\Users\Admin\Documents\Mechatronik_Master\Embedded Systems\CroUI\CroUI\bin\Debug\Microsoft.Expression.Drawing.dll
+C:\Users\Admin\Documents\Mechatronik_Master\Embedded Systems\CroUI\CroUI\obj\Debug\CroUI.csproj.CopyComplete
