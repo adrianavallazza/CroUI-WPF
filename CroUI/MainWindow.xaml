@@ -95,19 +95,19 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Button Name="buttonArrowUp" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20 10 20 0" Cursor="Hand" 
-                            PreviewMouseDown="buttonArrowUp_PreviewMouseDown" PreviewMouseUp="buttonArrow_PreviewMouseUp">
+                            PreviewMouseDown="buttonArrowUp_PreviewMouseDown" PreviewMouseUp="buttonArrow_PreviewMouseUp" MouseEnter="buttonArrow_MouseEnter" MouseLeave="buttonArrow_MouseLeave">
                         <Image Source="Resources/img/arrow/arrow-up.png" Height="Auto" Width="Auto"/>
                     </Button>
                     <Button Name="buttonArrowLeft" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="45 5 0 5" Cursor="Hand"
-                            PreviewMouseDown="buttonArrowLeft_PreviewMouseDown" PreviewMouseUp="buttonArrow_PreviewMouseUp">
+                            PreviewMouseDown="buttonArrowLeft_PreviewMouseDown" PreviewMouseUp="buttonArrow_PreviewMouseUp" MouseEnter="buttonArrow_MouseEnter" MouseLeave="buttonArrow_MouseLeave">
                         <Image Source="Resources/img/arrow/arrow-left.png" Height="Auto" Width="Auto"/>
                     </Button>
                     <Button Name="buttonArrowRight" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0 5 45 5" Cursor="Hand"
-                            PreviewMouseDown="buttonArrowRight_PreviewMouseDown" PreviewMouseUp="buttonArrow_PreviewMouseUp">
+                            PreviewMouseDown="buttonArrowRight_PreviewMouseDown" PreviewMouseUp="buttonArrow_PreviewMouseUp" MouseEnter="buttonArrow_MouseEnter" MouseLeave="buttonArrow_MouseLeave">
                         <Image Source="Resources/img/arrow/arrow-right.png" Height="Auto" Width="Auto"/>
                     </Button>
                     <Button Name="buttonArrowDown" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20 0 20 10" Cursor="Hand"
-                            PreviewMouseDown="buttonArrowDown_PreviewMouseDown" PreviewMouseUp="buttonArrow_PreviewMouseUp">
+                            PreviewMouseDown="buttonArrowDown_PreviewMouseDown" PreviewMouseUp="buttonArrow_PreviewMouseUp" MouseEnter="buttonArrow_MouseEnter" MouseLeave="buttonArrow_MouseLeave">
                         <Image Source="Resources/img/arrow/arrow-down.png" Height="Auto" Width="Auto"/>
                     </Button>
                 </Grid>

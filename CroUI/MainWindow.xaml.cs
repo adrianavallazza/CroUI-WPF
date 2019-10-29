@@ -93,14 +93,14 @@ namespace CroUI
             if (e.Key == Key.Right)
             {
                 textBoxStatus.Text = "Driving to the right...";
-                setBtnPressedDesign(buttonArrowRight);              
+                setBtnPressedDesign(buttonArrowRight);
                 // ToDo
                 // Robot.moveright(sliderSpeed.value);
             }
             if (e.Key == Key.Down)
             {
                 textBoxStatus.Text = "Driving backwards...";
-                setBtnPressedDesign(buttonArrowDown);          
+                setBtnPressedDesign(buttonArrowDown);
                 // ToDo
                 // Robot.moveBackwards(sliderSpeed.value);
             }
@@ -136,6 +136,7 @@ namespace CroUI
             // Robot.moveForward(sliderSpeed.value);
         }
 
+
         private void buttonArrowLeft_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             textBoxStatus.Text = "Driving to the left...";
@@ -166,6 +167,16 @@ namespace CroUI
             resetBtnDesign((Button)sender);
         }
 
+        private void buttonArrow_MouseEnter(object sender, MouseEventArgs e)
+        {
+            setBtnMouseoverDesign((Button)sender);
+        }
+
+        private void buttonArrow_MouseLeave(object sender, MouseEventArgs e)
+        {
+            resetBtnDesign((Button)sender);
+        }
+
         private void clearTextBoxStatus()
         {
             textBoxStatus.Text = "";
@@ -186,6 +197,15 @@ namespace CroUI
             btn.Background = new LinearGradientBrush(gradientStopCollection, new Point(0.5, 0), new Point(0.5, 1));
         }
 
+        private void setBtnMouseoverDesign(Button btn)
+        {
+            var gradientStopCollection = new GradientStopCollection();
+            gradientStopCollection.Add(new GradientStop(Colors.WhiteSmoke, 0.0));
+            gradientStopCollection.Add(new GradientStop(Colors.LightGray, 0.5));
+            gradientStopCollection.Add(new GradientStop(Colors.Silver, 1));
+            btn.Background = new LinearGradientBrush(gradientStopCollection, new Point(0.5, 0), new Point(0.5, 1));
+        }
+
         private void resetBtnDesign(Button btn)
         {
             var gradientStopCollection = new GradientStopCollection();
@@ -194,5 +214,8 @@ namespace CroUI
             gradientStopCollection.Add(new GradientStop(Colors.DimGray, 1));
             btn.Background = new LinearGradientBrush(gradientStopCollection, new Point(0.5, 0), new Point(0.5, 1));
         }
+
+
+
     }
 }
