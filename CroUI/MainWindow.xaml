@@ -95,19 +95,19 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Button Name="buttonArrowUp" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20 10 20 0" Cursor="Hand" 
-                            PreviewMouseDown="buttonArrowUp_PreviewMouseDown" PreviewMouseUp="buttonArrow_PreviewMouseUp">
+                            PreviewMouseDown="buttonArrowUp_PreviewMouseDown" PreviewMouseUp="buttonArrow_PreviewMouseUp" MouseEnter="buttonArrow_MouseEnter" MouseLeave="buttonArrow_MouseLeave">
                         <Image Source="Resources/img/arrow/arrow-up.png" Height="Auto" Width="Auto"/>
                     </Button>
                     <Button Name="buttonArrowLeft" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="45 5 0 5" Cursor="Hand"
-                            PreviewMouseDown="buttonArrowLeft_PreviewMouseDown" PreviewMouseUp="buttonArrow_PreviewMouseUp">
+                            PreviewMouseDown="buttonArrowLeft_PreviewMouseDown" PreviewMouseUp="buttonArrow_PreviewMouseUp" MouseEnter="buttonArrow_MouseEnter" MouseLeave="buttonArrow_MouseLeave">
                         <Image Source="Resources/img/arrow/arrow-left.png" Height="Auto" Width="Auto"/>
                     </Button>
                     <Button Name="buttonArrowRight" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0 5 45 5" Cursor="Hand"
-                            PreviewMouseDown="buttonArrowRight_PreviewMouseDown" PreviewMouseUp="buttonArrow_PreviewMouseUp">
+                            PreviewMouseDown="buttonArrowRight_PreviewMouseDown" PreviewMouseUp="buttonArrow_PreviewMouseUp" MouseEnter="buttonArrow_MouseEnter" MouseLeave="buttonArrow_MouseLeave">
                         <Image Source="Resources/img/arrow/arrow-right.png" Height="Auto" Width="Auto"/>
                     </Button>
                     <Button Name="buttonArrowDown" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20 0 20 10" Cursor="Hand"
-                            PreviewMouseDown="buttonArrowDown_PreviewMouseDown" PreviewMouseUp="buttonArrow_PreviewMouseUp">
+                            PreviewMouseDown="buttonArrowDown_PreviewMouseDown" PreviewMouseUp="buttonArrow_PreviewMouseUp" MouseEnter="buttonArrow_MouseEnter" MouseLeave="buttonArrow_MouseLeave">
                         <Image Source="Resources/img/arrow/arrow-down.png" Height="Auto" Width="Auto"/>
                     </Button>
                 </Grid>
@@ -153,9 +153,9 @@
         <GroupBox Grid.Column="1" Header="Visualisation" HorizontalAlignment="Stretch" Margin="10" Grid.Row="2" VerticalAlignment="Stretch">
             <Grid Name="gridVisual">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="2*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
+
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -164,9 +164,25 @@
                 <ed:Arc StartAngle="-120" EndAngle="120" Stretch="None" 
                     Height="300" Width="300" StrokeThickness="20"      
                     StrokeDashArray=".25" Stroke="#FF484D5F"/>
-                <ed:Arc StartAngle="-120" EndAngle="-35" Stretch="None" 
+                <ed:Arc Name="arcSpeed" StartAngle="-120" EndAngle="-120" Stretch="None" 
                     Height="300" Width="300" StrokeThickness="20"
                     StrokeDashArray=".25" Stroke="CornflowerBlue"/>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Margin="0,0,0,-50">
+                    <TextBlock Text="km/h" Foreground="#FF878A9F" HorizontalAlignment="Center"
+                        FontSize="14"/>
+                    <TextBlock Name="textSpeed" Text="0" Foreground="Black" HorizontalAlignment="Center"
+                        FontSize="110" FontWeight="Light" Margin="0,-25,0,0"/>
+                </StackPanel>
+                <Label Name="labelEncoderLeft" Content="Encoder Left:" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Margin="15,18,0,0"/>
+                <TextBox Name="textBoxEncoderLeft" HorizontalAlignment="Left" Height="23" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Width="135" Margin="102,21,0,0"/>
+                <Label Content="Ticks" HorizontalAlignment="Left" Margin="241,20,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+                <Label Name="labelEncoderRight" Content="Encoder Right:" HorizontalAlignment="Left" Margin="10,69,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="1.118,0.5"/>
+                <TextBox Name="textBoxEncoderRight" HorizontalAlignment="Left" Height="23" Margin="102,72,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Width="135"/>
+                <Label Content="Ticks" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top" Margin="241,71,0,0"/>
+                <Label Content="Distance:" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Margin="35,124,0,0"/>
+                <TextBox Name="textBoxDistance" HorizontalAlignment="Left" Height="23" Margin="102,125,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Width="135"/>
+                <Label Content="m" HorizontalAlignment="Left" Margin="242,124,0,0" Grid.Row="1" VerticalAlignment="Top"/>
             </Grid>
         </GroupBox>
         <Image HorizontalAlignment="Left" Height="100" Margin="-41,169,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100"/>
@@ -187,46 +203,46 @@
                 <Setter Property="Foreground" Value="Black" />
                 <!--Template for action triggered Button Styles-->
                 <Setter Property="Template">
-                  <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                      <Border CornerRadius="4" Background="{TemplateBinding Background}">
-                        <Grid>
-                          <!--<Border Background="{StaticResource ButtonBackground}" VerticalAlignment="Stretch" CornerRadius="2" HorizontalAlignment="Stretch"/>-->
-                          <!--<Border x:Name="BorderPressed"  Opacity="0" Background="Blue" VerticalAlignment="Stretch" CornerRadius="2" HorizontalAlignment="Stretch"/>-->
-                          <Path x:Name="PathIcon" Width="Auto" Height="Auto" HorizontalAlignment="Center"/>
-                          <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
-                        </Grid>
-                      </Border>
-                      <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                          <Setter Property="Background">
-                            <Setter.Value>
-                              <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                                <GradientStop Color="WhiteSmoke" Offset="0.0" />
-                                <GradientStop Color="LightGray" Offset="0.5" />
-                                <GradientStop Color="Silver" Offset="1" />
-                              </LinearGradientBrush>
-                            </Setter.Value>
-                          </Setter>
-                          <Setter Property="Foreground" Value="Navy" />
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                          <Setter Property="Background">
-                            <Setter.Value>
-                              <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                                <GradientStop Color="AliceBlue" Offset="0.0" />
-                                <GradientStop Color="CornflowerBlue" Offset="0.5" />
-                                <GradientStop Color="RoyalBlue" Offset="1" />
-                              </LinearGradientBrush>
-                            </Setter.Value>
-                          </Setter>
-                          <Setter Property="Foreground" Value="White" />
-                        </Trigger>
-                      </ControlTemplate.Triggers>
-                  </ControlTemplate>
-              </Setter.Value>
-            </Setter>
-          </Style>
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border CornerRadius="4" Background="{TemplateBinding Background}">
+                                <Grid>
+                                    <!--<Border Background="{StaticResource ButtonBackground}" VerticalAlignment="Stretch" CornerRadius="2" HorizontalAlignment="Stretch"/>-->
+                                    <!--<Border x:Name="BorderPressed"  Opacity="0" Background="Blue" VerticalAlignment="Stretch" CornerRadius="2" HorizontalAlignment="Stretch"/>-->
+                                    <Path x:Name="PathIcon" Width="Auto" Height="Auto" HorizontalAlignment="Center"/>
+                                    <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
+                                </Grid>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background">
+                                        <Setter.Value>
+                                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                                <GradientStop Color="WhiteSmoke" Offset="0.0" />
+                                                <GradientStop Color="LightGray" Offset="0.5" />
+                                                <GradientStop Color="Silver" Offset="1" />
+                                            </LinearGradientBrush>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Foreground" Value="Navy" />
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background">
+                                        <Setter.Value>
+                                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                                <GradientStop Color="AliceBlue" Offset="0.0" />
+                                                <GradientStop Color="CornflowerBlue" Offset="0.5" />
+                                                <GradientStop Color="RoyalBlue" Offset="1" />
+                                            </LinearGradientBrush>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Foreground" Value="White" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
     </Window.Resources>
 </Window>
