@@ -175,13 +175,13 @@
                         FontSize="110" FontWeight="Light" Margin="0,-25,0,0"/>
                 </StackPanel>
                 <Label Name="labelEncoderLeft" Content="Encoder Left:" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Margin="15,18,0,0"/>
-                <TextBox Name="textBoxEncoderLeft" HorizontalAlignment="Left" Height="23" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Width="135" Margin="102,21,0,0"/>
+                <TextBox Name="textBoxEncoderLeft" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Width="135" Margin="102,21,0,0"/>
                 <Label Content="Ticks" HorizontalAlignment="Left" Margin="241,20,0,0" Grid.Row="1" VerticalAlignment="Top"/>
                 <Label Name="labelEncoderRight" Content="Encoder Right:" HorizontalAlignment="Left" Margin="10,69,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="1.118,0.5"/>
-                <TextBox Name="textBoxEncoderRight" HorizontalAlignment="Left" Height="23" Margin="102,72,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Width="135"/>
+                <TextBox Name="textBoxEncoderRight" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="102,72,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Width="135"/>
                 <Label Content="Ticks" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top" Margin="241,71,0,0"/>
                 <Label Content="Distance:" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Margin="35,124,0,0"/>
-                <TextBox Name="textBoxDistance" HorizontalAlignment="Left" Height="23" Margin="102,125,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Width="135"/>
+                <TextBox Name="textBoxDistance" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="102,125,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Width="135"/>
                 <Label Content="m" HorizontalAlignment="Left" Margin="242,124,0,0" Grid.Row="1" VerticalAlignment="Top"/>
             </Grid>
         </GroupBox>
