@@ -30,13 +30,13 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="160"/>
-                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="90"/>
             </Grid.ColumnDefinitions>
             <Label Content="RaspPi IP-Address:" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-            <TextBox Grid.Column="2" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="30">
+            <TextBox Name="textBoxIP" Grid.Column="2" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="30">
                 192.168.1.2
             </TextBox>
-            <Button Name="buttonConnect" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Width="70" Click="buttonConnect_Click" Cursor="Hand">
+            <Button Name="buttonConnect" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Width="80" Click="buttonConnect_Click" Cursor="Hand">
                 Connect
             </Button>
         </Grid>
@@ -94,19 +94,19 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Name="buttonArrowUp" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20 10 20 0" Cursor="Hand" 
+                    <Button Name="buttonArrowUp" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20 10 20 0" Cursor="Hand" Focusable="False"
                             PreviewMouseDown="buttonArrowUp_PreviewMouseDown" PreviewMouseUp="buttonArrow_PreviewMouseUp" MouseEnter="buttonArrow_MouseEnter" MouseLeave="buttonArrow_MouseLeave">
                         <Image Source="Resources/img/arrow/arrow-up.png" Height="Auto" Width="Auto"/>
                     </Button>
-                    <Button Name="buttonArrowLeft" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="45 5 0 5" Cursor="Hand"
+                    <Button Name="buttonArrowLeft" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="45 5 0 5" Cursor="Hand" Focusable="False"
                             PreviewMouseDown="buttonArrowLeft_PreviewMouseDown" PreviewMouseUp="buttonArrow_PreviewMouseUp" MouseEnter="buttonArrow_MouseEnter" MouseLeave="buttonArrow_MouseLeave">
                         <Image Source="Resources/img/arrow/arrow-left.png" Height="Auto" Width="Auto"/>
                     </Button>
-                    <Button Name="buttonArrowRight" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0 5 45 5" Cursor="Hand"
+                    <Button Name="buttonArrowRight" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0 5 45 5" Cursor="Hand" Focusable="False"
                             PreviewMouseDown="buttonArrowRight_PreviewMouseDown" PreviewMouseUp="buttonArrow_PreviewMouseUp" MouseEnter="buttonArrow_MouseEnter" MouseLeave="buttonArrow_MouseLeave">
                         <Image Source="Resources/img/arrow/arrow-right.png" Height="Auto" Width="Auto"/>
                     </Button>
-                    <Button Name="buttonArrowDown" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20 0 20 10" Cursor="Hand"
+                    <Button Name="buttonArrowDown" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20 0 20 10" Cursor="Hand" Focusable="False"
                             PreviewMouseDown="buttonArrowDown_PreviewMouseDown" PreviewMouseUp="buttonArrow_PreviewMouseUp" MouseEnter="buttonArrow_MouseEnter" MouseLeave="buttonArrow_MouseLeave">
                         <Image Source="Resources/img/arrow/arrow-down.png" Height="Auto" Width="Auto"/>
                     </Button>
@@ -127,7 +127,7 @@
                     <Label Content="Speed: " Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     <Label Content="0%" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     <Slider Name="sliderSpeed" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Cursor="Hand" ValueChanged="sliderSpeed_ValueChanged" 
-                            TickPlacement="TopLeft" Maximum="100" TickFrequency="10" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0"/>
+                            TickPlacement="TopLeft" Maximum="100" TickFrequency="10" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" Focusable="False"/>
                     <Label Content="100%" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 </Grid>
                 <!--Effect Buttons-->
@@ -143,13 +143,16 @@
                     <Button Name="buttonLed" HorizontalAlignment="Stretch" Margin="5 10 5 10" VerticalAlignment="Stretch" Click="buttonLed_Click" Cursor="Hand">
                         <Image Source="Resources/img/effects/led.png" Height="Auto" Width="Auto"/>
                     </Button>
+                    <Button Name="buttonAlign" Grid.Column="1" HorizontalAlignment="Center" Margin="5 10" VerticalAlignment="Stretch" Width="75" Click="buttonAlign_Click">
+                        Align North
+                    </Button>
                     <Button Name="buttonMusic" Grid.Column="2" HorizontalAlignment="Stretch" Margin="5 10" VerticalAlignment="Stretch" Click="buttonMusic_Click" Cursor="Hand">
                         <Image Source="Resources/img/effects/musical-note.png" Height="Auto" Width="Auto"/>
                     </Button>
                 </Grid>
             </Grid>
         </GroupBox>
-        <!--<GridSplitter Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Stretch" Width="2"/>-->
+        <!--<GridSplitter Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Stretch" Width="2" Focusable="False"/>-->
         <GroupBox Grid.Column="1" Header="Visualisation" HorizontalAlignment="Stretch" Margin="10" Grid.Row="2" VerticalAlignment="Stretch">
             <Grid Name="gridVisual">
                 <Grid.RowDefinitions>

@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CroUI.Robot;
 
 namespace CroUI
 {
@@ -20,9 +25,12 @@ namespace CroUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        private RaspPiRobot robot; 
+
         public MainWindow()
         {
             InitializeComponent();
+            robot = new RaspPiRobot();
         }
 
         // *** Connect Button
@@ -30,6 +38,21 @@ namespace CroUI
         {
             // ToDo
             // Start Client Object here and try connect to server (Raspi)
+            buttonConnect.Content = "Connecting...";
+            //buttonConnect.Foreground = new SolidColorBrush(Colors.Gold);
+            try
+            {
+                // tcpClient.Connect(IPAddress.Parse(textBoxIP.Text), 9999);
+                buttonConnect.Content = "Connected";
+                buttonConnect.Foreground = new SolidColorBrush(Colors.ForestGreen);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                buttonConnect.Content = "Error";
+                buttonConnect.Foreground = new SolidColorBrush(Colors.DarkRed);
+            }
+
         }
 
         // *** Shape Buttons
@@ -70,6 +93,11 @@ namespace CroUI
         {
             // ToDo
             // Robot.playMusic();
+        }
+
+        private void buttonAlign_Click(object sender, RoutedEventArgs e)
+        {
+            robot.alignNorth();
         }
 
         // Arrow Buttons
@@ -133,7 +161,7 @@ namespace CroUI
             textBoxStatus.Text = "Driving forward...";
             setBtnPressedDesign(buttonArrowUp);
             // ToDo
-            // Robot.moveForward(sliderSpeed.value);
+            robot.move((int)sliderSpeed.Value);
         }
 
 
@@ -142,7 +170,7 @@ namespace CroUI
             textBoxStatus.Text = "Driving to the left...";
             setBtnPressedDesign(buttonArrowLeft);
             // ToDo
-            // Robot.moveLeft(sliderSpeed.value);
+            robot.turnLeft();
         }
 
         private void buttonArrowRight_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -150,7 +178,7 @@ namespace CroUI
             textBoxStatus.Text = "Driving to the right...";
             setBtnPressedDesign(buttonArrowRight);
             // ToDo
-            // Robot.moveright(sliderSpeed.value);
+            robot.turnRight();
         }
 
         private void buttonArrowDown_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -158,7 +186,7 @@ namespace CroUI
             textBoxStatus.Text = "Driving backwards...";
             setBtnPressedDesign(buttonArrowDown);
             // ToDo
-            // Robot.moveBackwards(sliderSpeed.value);
+            robot.move(-(int)sliderSpeed.Value);
         }
 
         private void buttonArrow_PreviewMouseUp(object sender, MouseButtonEventArgs e)
@@ -216,8 +244,6 @@ namespace CroUI
             gradientStopCollection.Add(new GradientStop(Colors.DimGray, 1));
             btn.Background = new LinearGradientBrush(gradientStopCollection, new Point(0.5, 0), new Point(0.5, 1));
         }
-
-
 
     }
 }
