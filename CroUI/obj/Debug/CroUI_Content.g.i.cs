@@ -8,11 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ressources/img/circle.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ressources/img/left-arrow.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ressources/img/line.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ressources/img/rectangle.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ressources/img/star.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ressources/img/triangle.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/img/align-north.png")]
 
 

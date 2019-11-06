@@ -117,5 +117,9 @@
     <Resource Include="Resources\img\shapes\star.png" />
     <Resource Include="Resources\img\shapes\triangle.png" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\img\align\align-north.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

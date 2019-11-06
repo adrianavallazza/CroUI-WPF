@@ -10,7 +10,7 @@
         PreviewKeyDown="Window_PreviewKeyDown" PreviewKeyUp="Window_PreviewKeyUp">
     <Grid Name="gridMainWindow">
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="10"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -47,9 +47,10 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="2*"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
                     <RowDefinition Height="3*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -69,21 +70,21 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Name="buttonRectangle" HorizontalAlignment="Stretch" Margin="10 10 10 15" VerticalAlignment="Stretch" Click="buttonRectangle_Click" Cursor="Hand">
+                    <Button Name="buttonRectangle" HorizontalAlignment="Stretch" Margin="12 5" VerticalAlignment="Stretch" Click="buttonRectangle_Click" Cursor="Hand">
                         <Image Source="Resources/img/shapes/rectangle.png" Height="Auto" Width="Auto"/>
                     </Button>
-                    <Button Name="buttonCircle" Grid.Column="1" HorizontalAlignment="Stretch"  Margin="10 10 10 15" VerticalAlignment="Stretch" Click="buttonCircle_Click" Cursor="Hand">
+                    <Button Name="buttonCircle" Grid.Column="1" HorizontalAlignment="Stretch"  Margin="12 5" VerticalAlignment="Stretch" Click="buttonCircle_Click" Cursor="Hand">
                         <Image Source="Resources/img/shapes/circle.png" Height="Auto" Width="Auto"/>
                     </Button>
-                    <Button Name="buttonTriangle" Grid.Column="2" HorizontalAlignment="Stretch"  Margin="10 10 10 15" VerticalAlignment="Stretch" Click="buttonTriangle_Click" Cursor="Hand">
+                    <Button Name="buttonTriangle" Grid.Column="2" HorizontalAlignment="Stretch"  Margin="12 5" VerticalAlignment="Stretch" Click="buttonTriangle_Click" Cursor="Hand">
                         <Image Source="Resources/img/shapes/triangle.png" Height="Auto" Width="Auto"/>
                     </Button>
-                    <Button Name="buttonStar" Grid.Column="3" HorizontalAlignment="Stretch"  Margin="10 10 10 15" VerticalAlignment="Stretch" Click="buttonStar_Click" Cursor="Hand">
+                    <Button Name="buttonStar" Grid.Column="3" HorizontalAlignment="Stretch"  Margin="12 5" VerticalAlignment="Stretch" Click="buttonStar_Click" Cursor="Hand">
                         <Image Source="Resources/img/shapes/star.png" Height="Auto" Width="Auto"/>
                     </Button>
                 </Grid>
                 <!--Arrow Buttons-->
-                <Grid Name="gridArrowButtons" Grid.RowSpan="2" HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Stretch">
+                <Grid Name="gridArrowButtons" Grid.RowSpan="2" HorizontalAlignment="Stretch" Grid.Row="3" VerticalAlignment="Stretch">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
@@ -112,7 +113,7 @@
                     </Button>
                 </Grid>
                 <!--Speed Slider-->
-                <Grid Name="gridSpeed" HorizontalAlignment="Stretch" Grid.Row="4" VerticalAlignment="Stretch">
+                <Grid Name="gridSpeed" HorizontalAlignment="Stretch" Grid.Row="5" VerticalAlignment="Stretch">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
@@ -131,22 +132,24 @@
                     <Label Content="100%" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 </Grid>
                 <!--Effect Buttons-->
-                <Grid Name="gridEffectButtons" HorizontalAlignment="Stretch" Grid.Row="5" VerticalAlignment="Stretch">
+                <Grid Name="gridEffectButtons" HorizontalAlignment="Stretch" Grid.Row="6" VerticalAlignment="Stretch">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="2*"/>
                         <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Name="buttonLed" HorizontalAlignment="Stretch" Margin="5 10 5 10" VerticalAlignment="Stretch" Click="buttonLed_Click" Cursor="Hand">
+                    <Button Name="buttonLed" HorizontalAlignment="Stretch" Margin="10 5" VerticalAlignment="Stretch" Click="buttonLed_Click" Cursor="Hand">
                         <Image Source="Resources/img/effects/led.png" Height="Auto" Width="Auto"/>
                     </Button>
-                    <Button Name="buttonAlign" Grid.Column="1" HorizontalAlignment="Center" Margin="5 10" VerticalAlignment="Stretch" Width="75" Click="buttonAlign_Click">
-                        Align North
+                    <Button Name="buttonAlign" Grid.Column="2" HorizontalAlignment="Stretch" Margin="10 5" VerticalAlignment="Stretch" Click="buttonAlign_Click" Cursor="Hand">
+                        <Image Source="Resources/img/align/align-north.png" Height="Auto" Width="Auto"/>
                     </Button>
-                    <Button Name="buttonMusic" Grid.Column="2" HorizontalAlignment="Stretch" Margin="5 10" VerticalAlignment="Stretch" Click="buttonMusic_Click" Cursor="Hand">
+                    <Button Name="buttonMusic" Grid.Column="4" HorizontalAlignment="Stretch" Margin="10 5" VerticalAlignment="Stretch" Click="buttonMusic_Click" Cursor="Hand">
                         <Image Source="Resources/img/effects/musical-note.png" Height="Auto" Width="Auto"/>
                     </Button>
                 </Grid>
@@ -156,9 +159,9 @@
         <GroupBox Grid.Column="1" Header="Visualisation" HorizontalAlignment="Stretch" Margin="10" Grid.Row="2" VerticalAlignment="Stretch">
             <Grid Name="gridVisual">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -172,7 +175,7 @@
                     StrokeDashArray=".25" Stroke="CornflowerBlue"/>
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center"
                     Margin="0,0,0,-50">
-                    <TextBlock Text="km/h" Foreground="#FF878A9F" HorizontalAlignment="Center"
+                    <TextBlock Text="m/s" Foreground="#FF878A9F" HorizontalAlignment="Center"
                         FontSize="14"/>
                     <TextBlock Name="textSpeed" Text="0" Foreground="Black" HorizontalAlignment="Center"
                         FontSize="110" FontWeight="Light" Margin="0,-25,0,0"/>

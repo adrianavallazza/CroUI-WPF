@@ -42,7 +42,7 @@ namespace CroUI
             //buttonConnect.Foreground = new SolidColorBrush(Colors.Gold);
             try
             {
-                // tcpClient.Connect(IPAddress.Parse(textBoxIP.Text), 9999);
+                // Connect robot.client
                 buttonConnect.Content = "Connected";
                 buttonConnect.Foreground = new SolidColorBrush(Colors.ForestGreen);
             }
